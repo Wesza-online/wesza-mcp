@@ -1,0 +1,13 @@
+{
+  "namespace": "@wesza",
+  "categories": ["devops", "deployment", "mcp"],
+  "configSchema": {
+    "WESZA_API_TOKEN": {
+      "type": "string",
+      "title": "Wesza API Token",
+      "description": "Your Wesza API token — get it from wesza.online → Settings → API Token (starts with wza_)",
+      "secret": true,
+      "required": true
+    }
+  }
+}

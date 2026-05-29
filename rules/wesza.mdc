@@ -1,0 +1,38 @@
+---
+description: Wesza deployment workflows and conventions
+globs: ["**/*"]
+alwaysApply: false
+---
+
+# Wesza Deployment
+
+This project uses [Wesza](https://wesza.online) for deployment. Use the Wesza MCP tools when the user asks about deploying, restarting, logs, or environment variables.
+
+## Deploying
+
+- Use `deploy_app` with a GitHub URL to start a new deployment
+- Use `redeploy_app` to push latest code for an existing app
+- After triggering a deploy, call `get_logs` to stream the build output
+- App IDs start with `dep_` — use `list_apps` to find them
+
+## Logs and debugging
+
+- Always check `get_logs` when an app is failing before suggesting code fixes
+- The log output includes a `[status: ...]` header — check this first
+- Common issues: wrong start command, missing env vars, port binding errors
+
+## Environment variables
+
+- Use `set_env_vars` to add secrets — changes apply after the next redeploy
+- Use `get_env_vars` to list keys (values are always masked)
+- Never suggest hardcoding secrets in code — always use env vars
+
+## App URLs
+
+- Apps get a subdomain automatically: `appname.apps.wesza.online`
+- Custom domains can be added with `add_domain` (Builder plan or higher)
+
+## Servers
+
+- Use `list_servers` to find the server ID when deploying to a specific server
+- `get_server_incidents` shows AI-resolved incidents and past auto-fixes

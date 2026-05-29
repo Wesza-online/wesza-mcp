@@ -1,0 +1,14 @@
+{
+  "name": "wesza",
+  "displayName": "Wesza — Deploy & Manage Apps",
+  "description": "Deploy and manage apps on your VPS directly from Cursor. Deploy GitHub repos, stream build logs, manage env vars, and let Wesza's AI auto-fix incidents — without leaving the editor.",
+  "version": "1.0.0",
+  "author": { "name": "Wesza", "url": "https://wesza.online" },
+  "icon": "https://wesza.online/button.svg",
+  "homepage": "https://wesza.online/mcp",
+  "keywords": ["deploy", "vps", "devops", "hosting", "mcp"],
+  "components": {
+    "mcp": "mcp.json",
+    "rules": "rules/"
+  }
+}

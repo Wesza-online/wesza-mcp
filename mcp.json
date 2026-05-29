@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "wesza": {
+      "url": "https://wesza.online/mcp/api/mcp",
+      "headers": {
+        "X-API-Key": "${env:WESZA_API_TOKEN}"
+      }
+    }
+  }
+}
