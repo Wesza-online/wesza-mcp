@@ -1,0 +1,32 @@
+# Smithery registry metadata — https://smithery.ai
+name: wesza
+displayName: Wesza — Deploy & Manage Apps
+description: >
+  Deploy any app from a GitHub URL, manage env vars, read logs, restart or
+  redeploy — all from inside Claude, Cursor, or Windsurf. No terminal needed.
+homepage: https://wesza.online
+icon: https://wesza.online/button.svg
+categories:
+  - deployment
+  - devops
+  - cloud
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - apiToken
+    properties:
+      apiToken:
+        type: string
+        title: Wesza API Token
+        description: >
+          Get your token from wesza.online/dashboard → Settings → API Token.
+        secret: true
+  commandFunction: |
+    (config) => ({
+      command: "python",
+      args: ["-m", "wesza_mcp.server"],
+      env: { WESZA_API_TOKEN: config.apiToken }
+    })
